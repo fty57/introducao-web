@@ -5,19 +5,19 @@ import { Text, TextInput, View, StyleSheet, Button } from 'react-native'
 import IMCCalc from '../components/IMCCalc'
 
 
-
 export default IMCApp => {
+     // Estou optando por utilizar componentes funcionais
      const [weight, setWeight] = useState(0)
      const [height, setHeight] = useState(0)
 
      return (
-          <View>
+          <View style={styles.Container}>
                <View style={styles.subContainer}>
                     <View>
                          <Text>Altura:</Text>
                          <TextInput
                               style={styles.input}
-                              onChangeText={height => setHeight(height)}
+                              onChangeText={height => setHeight(height)} 
                          />
                     </View>
                     <View>
