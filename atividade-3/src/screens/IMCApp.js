@@ -9,6 +9,21 @@ export default IMCApp => {
      // Estou optando por utilizar componentes funcionais
      const [weight, setWeight] = useState(0)
      const [height, setHeight] = useState(0)
+     const [isPressed, setIsPressed] = useState(false)
+
+     const isPress = () => {
+          isPressed == false ? 
+          isPressed = setIsPressed(true) : 
+          isPressed = setIsPressed(false)
+     }
+
+     function isHandlePress(number){
+          if(number != null && isPressed){
+               return number
+          }else{
+               console.warn("Caiu no ELSE")
+          }
+     }
 
      return (
           <View style={styles.Container}>
@@ -17,7 +32,7 @@ export default IMCApp => {
                          <Text>Altura:</Text>
                          <TextInput
                               style={styles.input}
-                              onChangeText={height => setHeight(height)} 
+                              onChangeText={height => setHeight(height)}
                          />
                     </View>
                     <View>
@@ -31,13 +46,16 @@ export default IMCApp => {
 
 
                <Button
-                    onPress={()=> { console.warn('O que eu escrevo aqui?')}}
+                    onPress={() => { isPress }}
                     title="Calcular"
                     color="#841584"
                />
 
                <View style={styles.result}>
-                    <IMCCalc weight={weight} height={height} />
+                    <IMCCalc 
+                         weight={isHandlePress(weight)} 
+                         height={isHandlePress(height)} 
+                    />
                </View>
 
           </View>
