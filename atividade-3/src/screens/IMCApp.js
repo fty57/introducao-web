@@ -10,18 +10,28 @@ export default IMCApp => {
      const [weight, setWeight] = useState(0)
      const [height, setHeight] = useState(0)
      const [isPressed, setIsPressed] = useState(false)
+     
 
      const isPress = () => {
-          isPressed == false ? 
-          isPressed = setIsPressed(true) : 
-          isPressed = setIsPressed(false)
+          if (weight != null && height != null) {
+               setIsPressed(true)
+          }
      }
 
-     function isHandlePress(number){
-          if(number != null && isPressed){
-               return number
-          }else{
-               console.warn("Caiu no ELSE")
+     function isHandlePress(weight, height) {
+          if (isPressed) {
+               return (
+                    <View>
+                         <IMCCalc weight={weight} height={height} />
+                    </View>
+               )
+          } else {
+               return (
+                    <View>
+                         <Text>Aguardando ainda</Text>
+                    </View>
+               )
+
           }
      }
 
@@ -46,16 +56,13 @@ export default IMCApp => {
 
 
                <Button
-                    onPress={() => { isPress }}
+                    onPress={isPress}
                     title="Calcular"
                     color="#841584"
                />
 
                <View style={styles.result}>
-                    <IMCCalc 
-                         weight={isHandlePress(weight)} 
-                         height={isHandlePress(height)} 
-                    />
+                    {isHandlePress(weight, height)}
                </View>
 
           </View>
