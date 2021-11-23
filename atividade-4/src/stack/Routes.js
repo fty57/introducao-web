@@ -6,6 +6,7 @@ import Home from '../screens/Home';
 import Cadastro from '../screens/Cadastro';
 import IMC from '../screens/IMC';
 import Sobre from '../screens/Sobre';
+import Perfil from '../screens/Perfil';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,7 @@ export default Routes => {
                     <Stack.Screen name="Cadastro" component={Cadastro} />
                     <Stack.Screen name="IMC" component={IMC} />
                     <Stack.Screen name="Sobre" component={Sobre} />
+                    <Stack.Screen name="Perfil" component={Perfil} />
                </Stack.Navigator>
           </NavigationContainer>
 

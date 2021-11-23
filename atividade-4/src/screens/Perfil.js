@@ -1,8 +1,11 @@
 import React from 'react'
 import { Text, View, Button } from 'react-native'
+//, age, email, course
+//<Text>Idade: {age} </Text>
+//<Text>Email: {email} </Text>
+//<Text>Curso: {course} </Text>
 
-
-export default ({ navigation, nome, idade, email, curso }) => {
+export default ({navigation, name}) => {
      return (
           <View>
                <View>
@@ -10,10 +13,8 @@ export default ({ navigation, nome, idade, email, curso }) => {
                </View>
 
                <View>
-                    <Text>Nome:  {nome} </Text>
-                    <Text>Idade: {idade} </Text>
-                    <Text>Email: {email} </Text>
-                    <Text>Curso: {curso} </Text>
+                    <Text>Nome:  {name} </Text>
+
                </View>
 
 
