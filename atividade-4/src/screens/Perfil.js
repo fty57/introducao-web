@@ -1,11 +1,8 @@
 import React from 'react'
 import { Text, View, Button } from 'react-native'
-//, age, email, course
-//<Text>Idade: {age} </Text>
-//<Text>Email: {email} </Text>
-//<Text>Curso: {course} </Text>
 
-export default ({navigation, name}) => {
+
+export default ({ name }) => {
      return (
           <View>
                <View>
@@ -14,14 +11,13 @@ export default ({navigation, name}) => {
 
                <View>
                     <Text>Nome:  {name} </Text>
-
                </View>
 
 
                <Button
                     title="Home"
                     onPress={() => {
-                         navigation.goBack();
+                         props.navigation.goBack();
                     }}
                />
           </View>

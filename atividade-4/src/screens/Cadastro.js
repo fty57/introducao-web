@@ -1,22 +1,17 @@
 import React, { useState } from 'react'
 import { Text, View, TextInput, Button } from 'react-native'
 
-import Perfil from './Perfil'
 
-export default props => {
-     const native = props.navigation
+
+export default props => {     
      const [name, setName] = useState('')
      const [age, setAge] = useState(0)
      const [email, setEmail] = useState('')
      const [course, setCourse] = useState('')
 
 
-     function register(name) {
-          if(name != null){
-               native.navigate('Perfil', {name : name})
-          }else{
-               console.warn('Nome não inserido')
-          }
+     register = () => {
+          
      }
      return (
           <View>
@@ -26,7 +21,7 @@ export default props => {
 
                <View>
                     <TextInput
-                         onChangeText={() => setName(name)}
+                         onChangeText={(name) => setName({name : name})}
                          placeholder='Name'
                     />
                </View>
@@ -34,7 +29,7 @@ export default props => {
                <View>
                     <Button
                          title='Cadastrar'
-                         onPress={() => {register(name)}}
+                         onPress={() => register}
                     />
                </View>
 
