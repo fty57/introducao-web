@@ -1,17 +1,30 @@
 import React from 'react'
-import { Text, View, Button} from 'react-native'
+import { Text, View, Button, Image, StyleSheet } from 'react-native'
+
+import Options from '../components/Options'
 
 
-export default ({navigation}) => {
+export default ({ navigation }) => {
      return (
-          <View >
-               <Text >Sobre</Text>
+          <View>
+               <View>
+                    <Text>Details and Information</Text>
+                    <Text>
+                         Lorem ipsum dolor lorem dolor sit amet, consectetur adipiscing el Lorem ipsum dolor lorem dolor sit amet, consectetur adipiscing el Lorem ipsum dolor lorem dolor sit amet, consectetur adipiscing el Lorem ipsum dolor lorem dolor sit amet, consectetur adipiscing el Lorem ipsum dolor lorem dolor sit amet, consectetur adipiscing el
+                    </Text>
+                    <Image />
+               </View>
+
+               <Options />
+
                <Button
                     title="Home"
-                    onPress={() =>{
+                    onPress={() => {
                          navigation.goBack();
                     }}
                />
           </View>
      )
 }
+
+
