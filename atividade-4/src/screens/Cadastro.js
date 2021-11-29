@@ -17,37 +17,15 @@ export default props => {
 
                <View>
                     <TextInput
-                         onChangeText={(name) => setName({ name: name })}
+                         onChangeText={(name) => setName({ name: {name}})}
                          placeholder='Name'
                     />
                </View>
 
                <View>
-                    <TextInput
-                         onChangeText={(age) => setAge({ age: age })}
-                         placeholder='Age'
-                    />
-               </View>
-
-               <View>
-                    <TextInput
-                         onChangeText={(email) => setEmail({ email: email })}
-                         placeholder='Email'
-                    />
-               </View>
-
-               <View>
-                    <TextInput
-                         onChangeText={(course) => setCourse({ course: course })}
-                         placeholder='Course'
-                    />
-               </View>
-
-
-               <View>
                     <Button
                          title='Cadastrar'
-                         onPress={() => props.navigation.navigate('Perfil', { name })}
+                         onPress={() => props.navigation.navigate('Perfil', { name: {name}})}
                     />
                </View>
 

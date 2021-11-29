@@ -17,9 +17,6 @@ export default props => {
 
                <View>
                     <Text>Nome:  {props.route.params.name} </Text>
-                    <Text>Idade: {props.route.params.age} </Text>
-                    <Text>Nome: {props.route.params.email} </Text>
-                    <Text>Curso: {props.route.params.course} </Text>
                </View>
 
 
