@@ -1,8 +1,8 @@
 import React from 'react'
-import { Text, View, Button } from 'react-native'
+import { Text, View, Button, Image } from 'react-native'
 
 
-export default ({ name }) => {
+export default props => {
      return (
           <View>
                <View>
@@ -10,7 +10,16 @@ export default ({ name }) => {
                </View>
 
                <View>
-                    <Text>Nome:  {name} </Text>
+                    <Image
+                         source={{uri:'https://eduportugal.eu/wp-content/uploads/2019/07/Capa-Guia-do-estudante-brasileiro.jpg'}}
+                    />
+               </View>
+
+               <View>
+                    <Text>Nome:  {props.route.params.name} </Text>
+                    <Text>Idade: {props.route.params.age} </Text>
+                    <Text>Nome: {props.route.params.email} </Text>
+                    <Text>Curso: {props.route.params.course} </Text>
                </View>
 
 
