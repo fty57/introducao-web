@@ -1,47 +1,54 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Text, View, TextInput, Button } from 'react-native'
 
 
 
-export default props => {
-     const [weight, setWeight] = useState(0)
-     const [height, setHeight] = useState(0)
-     const [isPressed, setIsPressed] = useState(false)
-
-     useEffect(() => { // Pra ficar monitorando caso o botão seja pressionado
-          if(isPressed){ 
-               // Se o botão foi pressionado, chame a outra tela, passando o peso e altura
-               props.navigation.navigate('Resultado', { weight, height })
-               // Lembre-se de resetar o estado do botão, para que ele possa ser pressionado novamente
-               setIsPressed(false)
+export default class IMC extends React.Component {
+     constructor(props) {
+          super(props)
+          this.state = {
+               weight: 0,
+               height: 0,
+               isPress: false,
           }
-     })
+     }
+     actionButton = () =>{
+          this.setState({isPress: true})
+     }
 
-     return (
-          <View >
-              <View>
-                   <TextInput
-                         onChangeText={(weight) => setWeight({ weight: weight })}
-                         placeholder='Peso'
-                   />
-              </View>
+     next(){
+          if(this.state.isPress && this.state.weight != null && this.state.weight != null){
+               this.props.navigation.navigate('Resultado', { weight: this.state.weight, height: this.state.height })
+          }     
+     }
 
-              <View>
-                   <TextInput
-                         onChangeText={(height) => setHeight({ height: height })}
-                         placeholder='Altura'
-                   />
-              </View>
+     render() {
 
-              <View>
-                   <Button
-                         title='OK'
-                         onPress={()=>{
-                              if(weight != null && height != null) setIsPressed(true)   
-                         }}
-                   />
-              </View>
+          return (
 
-          </View>
-     )
+               <View >
+                    <View>
+                         <TextInput
+                              onChangeText={(weight) => this.setState({ weight })}
+                              placeholder='Peso'
+                         />
+                    </View>
+
+                    <View>
+                         <TextInput
+                              onChangeText={(height) => this.setState({ height })}
+                              placeholder='Altura'
+                         />
+                    </View>
+
+                    <View>
+                         <Button
+                              title='OK'
+                              onPress={this.actionButton}
+                         />
+                    </View>
+                    {this.next()}
+               </View>
+          )
+     }
 }
