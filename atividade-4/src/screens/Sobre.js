@@ -1,38 +1,38 @@
 import React from 'react'
 import { Text, View, Button, Image, StyleSheet } from 'react-native'
 
+import Card from '../components/Card'
 import Options from '../components/Options'
+
 
 
 export default ({ navigation }) => {
      return (
           <View>
                <View style={styles.container}>
-                    <View style={styles.backgroundTitle}>
-                         <Text style={styles.title}>O que era um bobo da corte?</Text>
-                    </View>
-
+                    <Card title='SOBRE'/>
 
                     <View style={styles.backgroundParagraph}>
                          <Text style={styles.paragraph}>
-                              O bobo da corte era um artista contratado pelas cortes europeias na Idade Média para divertir os reis e seu séquito. Como um palhaço, era considerado cômico e muitas vezes desagradável, por apontar de forma grotesca os vícios e as características da sociedade.
+                         A classificação do índice de massa corporal (IMC), pode ajudar a identificar obesidade ou desnutrição em crianças, adolescentes, adultos e idosos.Além de saber qual é o seu IMC, essa calculadora também indica qual deve ser o seu peso ideal para alcançar a sua melhor forma, e assim melhorar sua qualidade de vida, garantindo o seu bem estar.
                          </Text>
                     </View>
                     <View style={styles.backgroundLogo}>
                          <Image
                               style={styles.logo}
-                              source={{ uri: 'https://i.pinimg.com/564x/62/d7/12/62d71229571d05c032a68fb38b774106.jpg', }}
+                              source={{ uri: 'https://blog.fluxair.com.br/wp-content/uploads/2020/11/casal-feliz-exercicio.jpg', }}
                          />
                     </View>
+                    
+               <Options navigation={navigation} />
 
                </View>
 
-               <Options />
 
                <Button
                     title="Home"
                     onPress={() => {
-                         navigation.goBack();
+                         navigation.navigate('Home')
                     }}
                />
           </View>
@@ -43,10 +43,9 @@ const styles = StyleSheet.create({
      container: {
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: 'gray'
      },
      backgroundTitle: {
-          backgroundColor: 'pink',
+          backgroundColor: 'black',
           width: '100%',
      },   
      title: {
@@ -60,20 +59,18 @@ const styles = StyleSheet.create({
           fontSize: 14,
           padding: 10,
           textAlign: 'center',
-          color: '#FFF'
+          color: 'black'
      },
      backgroundParagraph: {
-          backgroundColor: 'black',
+          backgroundColor: '#D3D3D3',
           borderRadius: 10,
           margin: 5
      },
      logo: {
-          width: 200,
-          height: 200,
+          width: 135,
+          height: 135,
      },
      backgroundLogo: {
-          padding: 10,
-          backgroundColor: 'pink',
           borderWidth: 10,
           borderRadius: 7
      }

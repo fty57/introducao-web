@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Text, View, TextInput, Button } from 'react-native'
+import { Text, View, TextInput, Button, StyleSheet } from 'react-native'
 
+import Card from '../components/Card'
 
 export default class Cadastro extends Component{
      constructor(props) {
@@ -15,33 +16,35 @@ export default class Cadastro extends Component{
      render(){
           return (
                <View>
-                    <View>
-                         <Text>Cadastro</Text>
-                    </View>
+                    <Card title='REGISTRATION'/>
 
-                    <View>
-                         <TextInput
+                    <View style={styles.viewInput}>
+                         <TextInput 
+                              style={styles.input}
                               onChangeText={(name) => this.setState({name})}
                               placeholder='Name'
                          />
                     </View>
 
-                    <View>
-                         <TextInput
+                    <View style={styles.viewInput} >
+                         <TextInput 
+                              style={styles.input}
                               onChangeText={(age) => this.setState({age})}
                               placeholder='Idade'
                          />
                     </View>
 
-                    <View>
-                         <TextInput
+                    <View style={styles.viewInput}>
+                         <TextInput 
+                              style={styles.input}
                               onChangeText={(email) => this.setState({email})}
                               placeholder='Email'
                          />
                     </View>
 
-                    <View>
-                         <TextInput
+                    <View style={styles.viewInput}>
+                         <TextInput 
+                              style={styles.input}
                               onChangeText={(course) => this.setState({course})}
                               placeholder='Curso'
                          />
@@ -65,3 +68,16 @@ export default class Cadastro extends Component{
 
      }
 }
+
+const styles = StyleSheet.create({
+     viewInput: {
+          justifyContent: 'center',
+          alignItems: 'center',
+          borderWidth: 1,
+          margin: 7,
+          borderRadius: 10,
+     },
+     input: {
+          padding: 10,
+     }
+})

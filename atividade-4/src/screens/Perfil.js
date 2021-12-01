@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Text, View, Image, StyleSheet, Modal, Pressable } from 'react-native'
 
+import Card from '../components/Card'
+
 
 export default props => {
      const [modalVisible, setModalVisible] = useState(true);
@@ -12,10 +14,6 @@ export default props => {
                     animationType="slide"
                     transparent={true}
                     visible={modalVisible}
-                    onRequestClose={() => {
-                         Alert.alert("Esse modal irá fechar.");
-                         setModalVisible(!modalVisible);
-                    }}
                >
                     <View style={styles.centeredView}>
                          <View style={styles.modalView}>
@@ -28,10 +26,10 @@ export default props => {
                               </View>
 
                               <View>
-                                   <Text>Nome:  {props.route.params.name} </Text>
-                                   <Text>Idade: {props.route.params.age}</Text>
-                                   <Text>Email: {props.route.params.email}</Text>
-                                   <Text>Curso: {props.route.params.course}</Text>
+                                   <Text style={styles.modalText}>Nome:  {props.route.params.name} </Text>
+                                   <Text style={styles.modalText}>Idade: {props.route.params.age}</Text>
+                                   <Text style={styles.modalText}>Email: {props.route.params.email}</Text>
+                                   <Text style={styles.modalText}>Curso: {props.route.params.course}</Text>
                               </View>
 
                               <Pressable
@@ -43,6 +41,9 @@ export default props => {
                          </View>
                     </View>
                </Modal>
+
+               <Card title='PERFIL'/>
+
                <Pressable
                     style={[styles.button, styles.buttonOpen]}
                     onPress={() => setModalVisible(true)}
@@ -95,14 +96,16 @@ const styles = StyleSheet.create({
           elevation: 5
      },
      button: {
-          borderRadius: 20,
+          borderRadius: 10,
           padding: 10,
           elevation: 2
      },
      buttonOpen: {
+          margin: 20,
           backgroundColor: "#F194FF",
      },
      buttonClose: {
+          marginTop: 20,
           backgroundColor: "#2196F3",
      },
      buttonBack: {
@@ -114,8 +117,7 @@ const styles = StyleSheet.create({
           textAlign: "center"
      },
      modalText: {
-          marginBottom: 20,
           fontWeight: "bold",
           textAlign: "center"
-     }
+     },
 })

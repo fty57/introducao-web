@@ -1,11 +1,14 @@
 import React from 'react'
-import { Text, View , Button} from 'react-native'
+import { Text, View, Button} from 'react-native'
 
-export default ({navigation}) => {
+import Card from '../components/Card'
+
+export default ({ navigation }) => {
      return (
+          // Lembrar de transformar isso em um componente !!!
           <View>
-               <Text >Home</Text>
-               <Button 
+               <Card title='HOME'/>
+               <Button
                     title='Cadastro'
                     onPress={() => {
                          navigation.navigate('Cadastro')
