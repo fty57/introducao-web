@@ -10,7 +10,7 @@ import {
 
 import firebase from '../firebase/firebase_config'
 
-const AddUserScreen = () => {
+const AddUserScreen = (props) => {
 
      const initialState = { name: '', surname: '', course: '', ira: '' }
      const [state, setState] = useState(initialState)
@@ -24,6 +24,7 @@ const AddUserScreen = () => {
                          course: state.course,
                          ira: state.ira
                     }) 
+                    props.navigation.navigate('ListUserScreen')
           } catch (error) {
                console.log(error)
           }
