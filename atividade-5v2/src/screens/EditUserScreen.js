@@ -4,7 +4,6 @@ import {
      Text,
      ScrollView,
      Button,
-     ActivityIndicator,
      StyleSheet
 } from 'react-native'
 
@@ -19,7 +18,8 @@ const EditUserScreen = (props) => {
 
      useEffect(
           () => {
-               getUserById(props.route.params.userId)
+               const id = props.route.params.userId
+               getUserById(id)
           },
           []
      )
@@ -28,7 +28,7 @@ const EditUserScreen = (props) => {
           setUser({ ...user, [prop]: value })
      }
 
-     const getUserById = async () => {
+     const getUserById = async (id) => {
           const dbRef = firebase.db.collection('users').doc(id)
           const doc = await dbRef.get()
           const user = doc.data()

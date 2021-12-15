@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, Button } from 'react-native'
-import { ListItem, Avatar } from 'react-native-elements'
+import { View, Text, Button, StyleSheet } from 'react-native'
+import { ListItem, Avatar, FAB, Divider } from 'react-native-elements'
 import { ScrollView } from 'react-native-gesture-handler'
 
 import firebase from '../firebase/firebase_config'
@@ -14,7 +14,7 @@ const ListUserScreen = (props) => {
                firebase.db.collection("users").onSnapshot((querySnapshot) => {
                     const users = [];
                     querySnapshot.docs.forEach((doc) => {
-                         const { name, surname, course , ira } = doc.data();
+                         const { name, surname, course, ira } = doc.data();
                          users.push({
                               id: doc.id,
                               name,
@@ -31,20 +31,14 @@ const ListUserScreen = (props) => {
 
      return (
           <ScrollView>
-               <Button
-                    onPress={() =>{
-                         props.navigation.navigate("AddUserScreen")
-                    }}
-                    title='Create new User'
-               />
                {
                     users.map((user) => {
                          return (
                               <ListItem
                                    key={user.id}
                                    bottomDivider
-                                   onPress={() =>{
-                                        props.navigation.navigate('EditUserScreen', {userId: user.id})
+                                   onPress={() => {
+                                        props.navigation.navigate('EditUserScreen', { userId: user.id })
                                    }}
                               >
                                    <ListItem.Chevron />
@@ -69,8 +63,25 @@ const ListUserScreen = (props) => {
                          )
                     })
                }
+
+               <View style={styles.fabButton}>
+                    <FAB
+                         title="+"
+                         size="small"
+
+                         onPress={() => { props.navigation.navigate("AddUserScreen") }}
+                    />
+               </View>
           </ScrollView>
      )
 }
 
+const styles = StyleSheet.create({
+     fabButton: {
+          flexDirection: 'column',
+          justifyContent: 'flex-end',
+          alignItems: 'flex-end',
+          padding: 10,
+     }
+})
 export default ListUserScreen
